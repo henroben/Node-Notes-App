@@ -1,0 +1,22 @@
+{
+  "name": "notes-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henroben/Node-Notes-App.git"
+  },
+  "author": "Benjamin Mercer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/henroben/Node-Notes-App/issues"
+  },
+  "homepage": "https://github.com/henroben/Node-Notes-App#readme",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
