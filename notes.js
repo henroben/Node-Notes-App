@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 
-var fetchNotes = () => {
+let fetchNotes = () => {
     try {
         let notesString = fs.readFileSync('notes-data.json');
         return JSON.parse(notesString);
@@ -11,18 +11,18 @@ var fetchNotes = () => {
     }
 };
 
-var saveNotes = (notes) => {
+let saveNotes = (notes) => {
     fs.writeFileSync('notes-data.json', JSON.stringify(notes));
 };
 
-var addNote = (title, body) => {
-    var notes = fetchNotes();
-    var note = {
+let addNote = (title, body) => {
+    let notes = fetchNotes();
+    let note = {
         title,
         body
     };
 
-    var duplicateNotes = notes.filter((note) => note.title === title );
+    let duplicateNotes = notes.filter((note) => note.title === title );
 
     if (duplicateNotes.length === 0) {
         notes.push(note);
@@ -31,16 +31,20 @@ var addNote = (title, body) => {
     }
 };
 
-var getAll = () => {
+let getAll = () => {
     console.log('Listing all notes');
 };
 
-var getNote = (title) => {
+let getNote = (title) => {
     console.log('Getting', title);
 };
 
-var removeNote = (title) => {
-    console.log('Removing', title);
+let removeNote = (title) => {
+    let notes = fetchNotes();
+    let removeNote = notes.filter((note) => note.title !== title);
+    saveNotes(removeNote);
+
+    return notes.length !== removeNote.length;
 };
 
 module.exports = {
