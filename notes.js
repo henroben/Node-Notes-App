@@ -32,7 +32,9 @@ let addNote = (title, body) => {
 };
 
 let getAll = () => {
-    console.log('Listing all notes');
+
+    return fetchNotes();
+
 };
 
 let getNote = (title) => {
@@ -44,17 +46,21 @@ let getNote = (title) => {
 };
 
 let removeNote = (title) => {
+
     let notes = fetchNotes();
     let removeNote = notes.filter((note) => note.title !== title);
     saveNotes(removeNote);
 
     return notes.length !== removeNote.length;
+
 };
 
 let logNote = (note) => {
+    debugger;
     console.log('------------');
     console.log(`Title: ${note.title}`);
     console.log(`Body: ${note.body}`);
+
 };
 
 module.exports = {
